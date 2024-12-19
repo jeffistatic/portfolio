@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <!-- Font Awesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none; /* Disable interaction for inactive slides */
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto; /* Enable interaction for active slide */
+    }
+
+    .icon {
+      font-size: 50px;
+      color: #f7b731;
+      margin-bottom: 20px;
+    }
+
+    .slide h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .slide p {
+      font-size: 18px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function showNextSlide() {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add("active");
+      }
+
+      setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+    });
+  </script>
+</head>
+<body>
+
+  <div class="slideshow-container">
+    <div class="slide active">
+      <i class="fas fa-user-circle icon"></i>
+      <h1>Hi, I'm Jeff M. Huston</h1>
+      <p>A passionate developer and graphic designer located in Bangalore, India.</p>
+    </div>
+    <div class="slide">
+      <i class="fas fa-code icon"></i>
+      <h1>Skills</h1>
+      <p>HTML, CSS, Node.js, Python, and Graphic Design.</p>
+    </div>
+    <div class="slide">
+      <i class="fas fa-envelope icon"></i>
+      <h1>Contact</h1>
+      <p>Reach me at coolhighzzbiz@gmail.com</p>
+    </div>
+  </div>
+
+</body>
+</html>
